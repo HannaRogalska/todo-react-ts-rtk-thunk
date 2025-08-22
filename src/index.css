@@ -7,6 +7,7 @@
   --background-color-dark-theme: rgba(15, 16, 17, 0.8);
   --text-color-dark-theme: rgb(212, 212, 212);
   --border-color-input:rgb(0, 48, 119);
+  --bg-color-button:rgb(0, 48, 119);
 
 }
 body {
