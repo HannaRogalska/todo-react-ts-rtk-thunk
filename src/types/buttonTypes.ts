@@ -1,4 +1,4 @@
 export interface ButtonProps {
-    nameForButton: string;
-    clickFunction?: () => void;
+  nameForButton: string;
+  handlerFunction?: () => void;
 }
