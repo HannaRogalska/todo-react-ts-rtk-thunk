@@ -1,7 +1,12 @@
-import React from 'react'
+
+import TodoInput from "../../components/TodoInput/Input";
 
 const TodoPage = () => {
-  return <div>TodoPage</div>;
+  return (
+    <div>
+      <TodoInput />
+    </div>
+  );
 }
 
 export default TodoPage
