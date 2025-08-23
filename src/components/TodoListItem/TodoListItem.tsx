@@ -1,9 +1,14 @@
-import { useAppSelector } from "../../hooks/storeHooks/storeHooks";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/storeHooks/storeHooks";
 import Button from "../Button/Button";
+import { fetchData } from "../../features/todo/todoSlice";
 
 const TodoListItem = () => {
   const todos = useAppSelector((state) => state.todo.todos);
-  console.log(todos);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
 
   return (
     <ol className="list-decimal  list-inside py-2">
