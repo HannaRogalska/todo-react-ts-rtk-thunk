@@ -1,8 +1,6 @@
 export interface Todo{
     id: number;
     title: string;
-    isCompleted: boolean;
-}
-export interface Todos{
-    todos: Todo[]
+    completed: boolean;
+    userId?: number
 }
