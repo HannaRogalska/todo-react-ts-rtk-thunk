@@ -32,6 +32,9 @@ export const todoSlice = createSlice({
       };
       state.todos.push(newTodo);
     },
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -44,9 +47,9 @@ export const todoSlice = createSlice({
       })
       .addCase(fetchData.rejected, (state) => {
         state.loading = "failed";
-        state.error = "Failed to fetch todos"
+        state.error = "Failed to fetch todos";
       });
-  }
+  },
 });
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, removeTodo } = todoSlice.actions;
 export default todoSlice.reducer;
