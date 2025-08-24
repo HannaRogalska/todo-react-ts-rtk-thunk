@@ -1,4 +1,4 @@
-import type { ButtonProps } from "../../types/buttonTypes";
+import type { ButtonProps } from "./buttonTypes";
 const Button = ({ nameForButton, handlerFunction }: ButtonProps) => {
   return (
     <button

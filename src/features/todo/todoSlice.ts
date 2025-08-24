@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchTodoApi } from "./todoApi";
-import type { Todo } from "../../types/todoTypes";
+import type { Todo } from "./todoTypes";
 
 interface StateTodos {
   todos: Todo[];
@@ -13,12 +13,9 @@ const initialState: StateTodos = {
   error: null,
 };
 
-export const fetchData = createAsyncThunk(
-  "todo/fetchData",
-  async () => {
-    return await fetchTodoApi();
-  }
-)
+export const fetchData = createAsyncThunk("todo/fetchData", async () => {
+  return await fetchTodoApi();
+});
 
 export const todoSlice = createSlice({
   name: "todo",
@@ -40,7 +37,7 @@ export const todoSlice = createSlice({
       if (todo) {
         todo.completed = !todo.completed;
       }
-    }
+    },
   },
   extraReducers: (builder) => {
     builder

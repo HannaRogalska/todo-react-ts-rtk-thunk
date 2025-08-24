@@ -15,7 +15,7 @@ const TodoListItem = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ol className="list-decimal pl-6">
@@ -28,7 +28,7 @@ const TodoListItem = () => {
                 <input
                   type="checkbox"
                   checked={todo.completed}
-                  onClick={() => dispatch(checkedTodo(todo.id))}
+                  onChange={() => dispatch(checkedTodo(todo.id))}
                   className="mx-2"
                 />
                 <Button
