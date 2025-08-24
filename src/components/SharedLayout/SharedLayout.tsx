@@ -4,7 +4,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 const SharedLayout = () => {
   return (
     <>
-      <nav className="flex justify-between items-center w-full p-2">
+      <nav className="flex justify-between items-center w-full p-2 mb-2">
         <img
           src="https://cdn2.iconfinder.com/data/icons/illustricon-tech-viii/512/task_refresh-512.png"
           alt="logo"
@@ -15,7 +15,7 @@ const SharedLayout = () => {
           <NavLink to="/todo">Todo</NavLink>
         </div>
       </nav>
-      <main className='p-7'>
+      <main>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>

@@ -14,7 +14,7 @@ const TodoInput = () => {
   }
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center p-2 mb-2">
       <label>
         <input
           type="text"

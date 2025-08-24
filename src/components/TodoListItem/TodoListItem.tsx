@@ -1,8 +1,14 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../hooks/storeHooks/storeHooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../hooks/storeHooks/storeHooks";
 import Button from "../Button/Button";
-import { fetchData, removeTodo } from "../../features/todo/todoSlice";
-
+import {
+  fetchData,
+  removeTodo,
+  checkedTodo,
+} from "../../features/todo/todoSlice";
 
 const TodoListItem = () => {
   const todos = useAppSelector((state) => state.todo.todos);
@@ -10,23 +16,27 @@ const TodoListItem = () => {
   useEffect(() => {
     dispatch(fetchData());
   }, []);
-  const deleteTodo = (id: number) => { 
-    dispatch(removeTodo(id));
-  }
 
   return (
-    <ol className="list-decimal  list-inside py-2">
+    <ol className="list-decimal pl-6">
       {todos.length > 0 ? (
         todos.map((todo) => (
-          <li
-            key={todo.id}
-            className="list-item flex-row justify-center items-center gap-2 "
-          >
-            {todo.title} <input type="checkbox" />
-            <Button
-              nameForButton="Delete"
-              handlerFunction={() => deleteTodo(todo.id)}
-            />
+          <li key={todo.id} className="mb-2 last:mb-0">
+            <div className="flex justify-between items-center">
+              {todo.title}
+              <div className="flex justify-between items-center">
+                <input
+                  type="checkbox"
+                  checked={todo.completed}
+                  onClick={() => dispatch(checkedTodo(todo.id))}
+                  className="mx-2"
+                />
+                <Button
+                  nameForButton="Delete"
+                  handlerFunction={() => dispatch(removeTodo(todo.id))}
+                />
+              </div>
+            </div>
           </li>
         ))
       ) : (
